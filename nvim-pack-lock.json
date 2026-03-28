@@ -1,0 +1,72 @@
+{
+  "plugins": {
+    "ChatGPT.nvim": {
+      "rev": "5b6d296eefc75331e2ff9f0adcffbd7d27862dd6",
+      "src": "https://github.com/jackMort/ChatGPT.nvim"
+    },
+    "blink.cmp": {
+      "rev": "37ce860d8eeeee92d60b9a72db21e369d97e6a75",
+      "src": "https://github.com/Saghen/blink.cmp"
+    },
+    "friendly-snippets": {
+      "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "gipity.nvim": {
+      "rev": "b2a8771bf7970585bab3403a939be744cc5232fa",
+      "src": "https://github.com/sheepy9/gipity.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "bf9e7205192015dc48727744f21e09ac986664f9",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "neo-tree.nvim": {
+      "rev": "740101f43da78e6507792f0d3fe7c542c5daac13",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
+    "neogit": {
+      "rev": "d8bf9102692250193b855acd9025a826f1af2729",
+      "src": "https://github.com/NeogitOrg/neogit"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim": {
+      "rev": "ce8d176faa4643e026e597ae3c31db59b63cef09",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "c4f67bf85b01a57e3c130352c0a0e453ab8cd5b9",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-web-devicons": {
+      "rev": "8dcb311b0c92d460fac00eac706abd43d94d68af",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "onenord.nvim": {
+      "rev": "77ca72a9ef771239eb43bf4b745285396e909bf6",
+      "src": "https://github.com/rmehri01/onenord.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "sllm.nvim": {
+      "rev": "5c909f0e3823e9116e2c8735d1c04fa9559c98cb",
+      "src": "https://github.com/mozanunal/sllm.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "3d757e586ff0bfc85bdb7b46c9d3d932147a0cde",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
+    }
+  }
+}
