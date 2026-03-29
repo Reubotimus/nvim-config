@@ -89,8 +89,9 @@ vim.pack.add({
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
 	{ src = "https://github.com/Saghen/blink.cmp" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
-	{ src = "https://github.com/mozanunal/sllm.nvim" },
-	{ src = "https://github.com/NeogitOrg/neogit" }
+	{ src = "https://github.com/NeogitOrg/neogit" },
+	{ src = "https://github.com/folke/flash.nvim" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" }
 })
 
 -- theme
@@ -151,6 +152,7 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Definition (Telescope)" })
+
 -- neotree
 require("neo-tree").setup({
 	filesystem = {
@@ -161,6 +163,26 @@ require("neo-tree").setup({
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Neo-tree: Toggle" })
 vim.keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>", { desc = "Neo-tree: Focus" })
 
--- sllm
-require("sllm").setup()
+-- flash
+vim.keymap.set({ "n", "x", "o" }, "s", function()
+  require("flash").jump()
+end, { desc = "Flash" })
 
+vim.keymap.set({ "n", "x", "o" }, "S", function()
+  require("flash").treesitter()
+end, { desc = "Flash Treesitter" })
+
+vim.keymap.set("o", "r", function()
+  require("flash").remote()
+end, { desc = "Remote Flash" })
+
+vim.keymap.set({ "o", "x" }, "R", function()
+  require("flash").treesitter_search()
+end, { desc = "Treesitter Search" })
+
+vim.keymap.set("c", "<C-s>", function()
+  require("flash").toggle()
+end, { desc = "Toggle Flash Search" })
+
+-- treesitter
+require('nvim-treesitter').install({ 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'python', 'tsx' })
