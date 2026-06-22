@@ -21,7 +21,6 @@ vim.g.mapleader = " "
 vim.keymap.set("v", "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>y", [["+y]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set('n', "<leader>lf", vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>p', '"+p')
 vim.keymap.set('x', '<leader>p', '"+P')
 
@@ -87,6 +86,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/Saghen/blink.cmp" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/NeogitOrg/neogit" },
@@ -109,8 +109,8 @@ require("blink.cmp").setup({
 	},
 })
 
--- mason
-require("mason").setup()
+-- mason (prepend bin so :MasonInstall prettier|stylua resolve on PATH)
+require("mason").setup({ PATH = "prepend" })
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"ts_ls",
@@ -143,6 +143,33 @@ vim.lsp.config("ocamllsp", {
   capabilities = require("blink.cmp").get_lsp_capabilities(),
 })
 vim.lsp.enable("ocamllsp")
+
+-- formatting: Prettier/Stylua via conform; other filetypes fall back to LSP
+require("conform").setup({
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_fallback = true,
+	},
+	formatters_by_ft = {
+		javascript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescript = { "prettier" },
+		typescriptreact = { "prettier" },
+		json = { "prettier" },
+		jsonc = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
+		scss = { "prettier" },
+		less = { "prettier" },
+		markdown = { "prettier" },
+		lua = { "stylua" },
+	},
+})
+
+vim.keymap.set("n", "<leader>lf", function()
+	require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "Format buffer" })
+
 vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 
 -- telescope
